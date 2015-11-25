@@ -5,15 +5,22 @@ public class Projectile : MonoBehaviour {
 	Rigidbody rb;
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody> ();
+		rb = this.GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		rb.velocity = rb.velocity*1.01f;
+		rb.velocity = 1.01f * rb.velocity;
 	}
 	void Awake()
 	{
 		Destroy(this.gameObject, 5.0f);
+	}
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.name == "") {
+			
+		} else if (other.gameObject.name == "") {
+			
+		}
 	}
 }

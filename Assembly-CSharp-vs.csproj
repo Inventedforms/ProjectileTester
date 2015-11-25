@@ -48,7 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Mixamo\Magic Pack\Demo\CameraScroll.cs" />
      <Compile Include="Assets\Projectile.cs" />
-     <Compile Include="Assets\ProjectileScript.cs" />
+     <Compile Include="Assets\Shooter.cs" />
      <None Include="Assets\PopcornFX\README.txt" />
      <None Include="Assets\PopcornFX\Resources\PKFxDistortionEffect.shader" />
      <None Include="Assets\PopcornFX\Resources\PKFxDistQuickDirtyBlurEffect.shader" />
@@ -62,13 +62,13 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="PKFx-Helper">
- <HintPath>C:/Users/Alan Huynh/VIsualNovel/Projectiles/Assets/PopcornFX/Scripts/PKFx-Helper.dll</HintPath>
+ <HintPath>C:/Users/Alan Huynh/Projectiles/Assets/PopcornFX/Scripts/PKFx-Helper.dll</HintPath>
  </Reference>
  <Reference Include="PKFx-Runtime">
- <HintPath>C:/Users/Alan Huynh/VIsualNovel/Projectiles/Assets/PopcornFX/Scripts/PKFx-Runtime.dll</HintPath>
+ <HintPath>C:/Users/Alan Huynh/Projectiles/Assets/PopcornFX/Scripts/PKFx-Runtime.dll</HintPath>
  </Reference>
  <Reference Include="PKFxManager">
- <HintPath>C:/Users/Alan Huynh/VIsualNovel/Projectiles/Assets/PopcornFX/Scripts/PKFxManager.dll</HintPath>
+ <HintPath>C:/Users/Alan Huynh/Projectiles/Assets/PopcornFX/Scripts/PKFxManager.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ProjectileScript : MonoBehaviour {
-
+public class Shooter : MonoBehaviour {
+	
 	// Use this for initialization
 	GameObject prefab;
 	void Start () {
@@ -16,17 +16,11 @@ public class ProjectileScript : MonoBehaviour {
 			position = Camera.main.ScreenToWorldPoint(position);
 			GameObject projectile = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
 			projectile.transform.LookAt(position);
-
+			
 			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.velocity = projectile.transform.forward*50;
+			rb.velocity = projectile.transform.forward*40;
 			//rb.AddForce(position);
 		}
 	}
-	void OnTriggerEnter(Collider other){
-		if (other.gameObject.name == "") {
-		
-		} else if (other.gameObject.name == "") {
-		
-		}
-	}
+	
 }
