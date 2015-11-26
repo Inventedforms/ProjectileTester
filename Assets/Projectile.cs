@@ -10,14 +10,14 @@ public class Projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rb.velocity = 1.01f * rb.velocity;
+		//rb.velocity = 1.01f * rb.velocity;
 	}
 	void Awake()
 	{
-		Destroy(this.gameObject, 5.0f);
+		Destroy(this.gameObject, 3.0f);
 	}
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.name == "") {
+		if (other.gameObject.name == "Wall") {
 			
 		} else if (other.gameObject.name == "") {
 			
