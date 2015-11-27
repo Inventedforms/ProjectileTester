@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PopcornFX\README.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Projectile.cs">
     <Files>
-      <File FileName="Assets\PopcornFX\README.txt" Line="79" Column="1" />
-      <File FileName="Assets\DiscoveryPack_Demo\_README_FIRST.txt" Line="1" Column="1" />
-      <File FileName="Assets\Projectile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Shooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\PopcornFX\README.txt" Line="65" Column="1" />
+      <File FileName="Assets\SubProjectile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projectile.cs" Line="12" Column="40" />
+      <File FileName="Assets\Shooter.cs" Line="9" Column="39" />
+      <File FileName="Assets\DiscoveryPack_Demo\_Sources\Scripts\AddPKFxFXComponent.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

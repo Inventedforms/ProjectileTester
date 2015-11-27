@@ -18,7 +18,7 @@ public class Shooter : MonoBehaviour {
 			projectile.transform.LookAt(position);
 			
 			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.velocity = projectile.transform.forward*100;
+			rb.velocity = projectile.transform.forward*10;
 			rb.AddForce(projectile.transform.forward*1000);
 		}
 		if(Input.GetMouseButtonDown(1)){
