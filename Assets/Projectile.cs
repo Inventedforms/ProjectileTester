@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour {
 	void Start () {
 		rb = this.GetComponent<Rigidbody> ();
 		prefab = Resources.Load ("SubProjectile") as GameObject;
-		explosion = Resources.Load ("Pentacle") as GameObject;
+		explosion = Resources.Load ("Boom") as GameObject;
 		StartCoroutine (split ());
 	}
 	

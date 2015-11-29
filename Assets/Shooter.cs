@@ -5,8 +5,10 @@ public class Shooter : MonoBehaviour {
 	
 	// Use this for initialization
 	GameObject prefab;
+	GameObject marker;
 	void Start () {
 		prefab = Resources.Load ("Projectile") as GameObject;
+		marker = Resources.Load ("Pentacle") as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -22,11 +24,11 @@ public class Shooter : MonoBehaviour {
 			rb.AddForce(projectile.transform.forward*1000);
 		}
 		if(Input.GetMouseButtonDown(1)){
-			Vector3 position = Input.mousePosition;
-			position.y = 2.0f;
-			position = Camera.main.ScreenToWorldPoint(position);
-			GameObject mine = Instantiate (prefab, position, Quaternion.identity) as GameObject;
-			//mine.transform.LookAt(position);
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit h;
+			if(Physics.Raycast(ray, out h, 1000)){
+			GameObject p =	Instantiate (marker, h.point, Quaternion.identity) as GameObject;
+			} 
 		}
 	}
 	
