@@ -2,12 +2,10 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
-	Rigidbody rb;
 	GameObject prefab;
 	GameObject explosion;
 	// Use this for initialization
 	void Start () {
-		rb = this.GetComponent<Rigidbody> ();
 		prefab = Resources.Load ("SubProjectile") as GameObject;
 		explosion = Resources.Load ("Boom") as GameObject;
 		StartCoroutine (split ());
@@ -20,8 +18,8 @@ public class Projectile : MonoBehaviour {
 	}
 	IEnumerator split(){
 		yield return new WaitForSeconds(2.0f);
-		Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
-		position = Camera.main.ScreenToWorldPoint(position);
+		//Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
+		//position = Camera.main.ScreenToWorldPoint(position);
 		GameObject projectile = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
 		GameObject projectile2 = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
 		GameObject kaboom = Instantiate (explosion, transform.position, Quaternion.identity) as GameObject;
