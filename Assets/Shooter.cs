@@ -8,7 +8,7 @@ public class Shooter : MonoBehaviour {
 	GameObject highvelocity;
 	GameObject explosive;
 	GameObject pellet;
-	GameObject pentagram;
+	GameObject beacon;
 	int key;
 	bool fired;
 	void Start () {
@@ -16,7 +16,7 @@ public class Shooter : MonoBehaviour {
 		highvelocity = Resources.Load ("FastProjectile") as GameObject;
 		explosive = Resources.Load ("ExplodingProjectile") as GameObject;
 		pellet = Resources.Load ("SubProjectile") as GameObject;
-		pentagram = Resources.Load ("Pentacle") as GameObject;
+		beacon = Resources.Load ("Beacon") as GameObject;
 		key = 1;
 		fired = false;
 	}
@@ -76,10 +76,11 @@ public class Shooter : MonoBehaviour {
 			GameObject projectile = Instantiate(highvelocity, transform.position, Quaternion.identity) as GameObject;
 			projectile.transform.LookAt(h.point);
 			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.velocity = (projectile.transform.forward + h.point);
+			rb.MoveRotation(Quaternion.LookRotation(h.point));
+			rb.AddForce(projectile.transform.forward * 10000);
+			yield return new WaitForSeconds(1.0f);
+			fired = false;
 		}
-		yield return new WaitForSeconds(1.0f);
-		fired = false;
 	}
 	IEnumerator ExplosiveShot(){
 		Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
@@ -89,7 +90,7 @@ public class Shooter : MonoBehaviour {
 		
 		Rigidbody rb = projectile.GetComponent<Rigidbody>();
 		rb.velocity = projectile.transform.forward*5;
-		rb.AddForce(projectile.transform.forward*1000);
+		rb.AddForce(projectile.transform.forward*100);
 		yield return new WaitForSeconds(1.5f);
 		fired = false;
 	}
@@ -113,8 +114,8 @@ public class Shooter : MonoBehaviour {
 	IEnumerator Pentagram(){
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit h;
-		if(Physics.Raycast(ray, out h, 1000)){
-			GameObject p =	Instantiate (pentagram, h.point, Quaternion.identity) as GameObject;}
+		if(Physics.Raycast(ray, out h)){
+			GameObject p =	Instantiate (beacon, h.point, Quaternion.identity) as GameObject;}
 		yield return new WaitForSeconds(2.0f);
 		fired = false;
 	}

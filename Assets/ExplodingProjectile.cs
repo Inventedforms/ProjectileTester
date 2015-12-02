@@ -22,6 +22,10 @@ public class ExplodingProjectile : MonoBehaviour {
 		Destroy (this.gameObject);
 	}
 	void OnTriggerEnter(Collider other){
-	
+		if (other.gameObject.name == "Wall") {
+			
+		} else if (other.gameObject.name == "") {
+			
+		}
 	}
 }

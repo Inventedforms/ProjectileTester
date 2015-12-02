@@ -15,4 +15,11 @@ public class SubProjectile : MonoBehaviour {
 	void Awake(){
 		Destroy (this.gameObject, 2.0f);
 	}
+	void OnTriggerEnter(Collider other){
+		if (other.gameObject.name == "Wall") {
+			
+		} else if (other.gameObject.name == "") {
+			
+		}
+	}
 }
