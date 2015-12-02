@@ -45,7 +45,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Beacon.cs" />
      <Compile Include="Assets\DiscoveryPack_Demo\_Sources\Scripts\AddPKFxFXComponent.cs" />
      <Compile Include="Assets\DiscoveryPack_Demo\_Sources\Scripts\BounceDie.cs" />
      <Compile Include="Assets\DiscoveryPack_Demo\_Sources\Scripts\CamZoom.cs" />
@@ -54,11 +53,12 @@
      <Compile Include="Assets\DiscoveryPack_Demo\_Sources\Scripts\RomanCandle.cs" />
      <Compile Include="Assets\DiscoveryPack_Demo\_Sources\Scripts\RootyTootyPointNShooty.cs" />
      <Compile Include="Assets\DiscoveryPack_Demo\_Sources\Scripts\TimedSuicide.cs" />
-     <Compile Include="Assets\ExplodingProjectile.cs" />
-     <Compile Include="Assets\Meteor.cs" />
-     <Compile Include="Assets\Projectile.cs" />
-     <Compile Include="Assets\Shooter.cs" />
-     <Compile Include="Assets\SubProjectile.cs" />
+     <Compile Include="Assets\Scripts\Beacon.cs" />
+     <Compile Include="Assets\Scripts\ExplodingProjectile.cs" />
+     <Compile Include="Assets\Scripts\Meteor.cs" />
+     <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Shooter.cs" />
+     <Compile Include="Assets\Scripts\SubProjectile.cs" />
      <None Include="Assets\DiscoveryPack_Demo\_README_FIRST.txt" />
      <None Include="Assets\PopcornFX\README.txt" />
      <None Include="Assets\PopcornFX\Resources\PKFxDistortionEffect.shader" />

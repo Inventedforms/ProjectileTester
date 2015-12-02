@@ -13,7 +13,7 @@ public class Shooter : MonoBehaviour {
 	bool fired;
 	void Start () {
 		standard = Resources.Load ("Projectile") as GameObject;
-		highvelocity = Resources.Load ("FastProjectile") as GameObject;
+		highvelocity = Resources.Load ("RomanCandle") as GameObject;
 		explosive = Resources.Load ("ExplodingProjectile") as GameObject;
 		pellet = Resources.Load ("SubProjectile") as GameObject;
 		beacon = Resources.Load ("Beacon") as GameObject;
@@ -56,16 +56,16 @@ public class Shooter : MonoBehaviour {
 		}
 	}
 	IEnumerator BasicShot(){
-		Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
-		position = Camera.main.ScreenToWorldPoint(position);
-		GameObject projectile = Instantiate(standard, transform.position, Quaternion.identity) as GameObject;
-		projectile.transform.LookAt(position);
-		
-		Rigidbody rb = projectile.GetComponent<Rigidbody>();
-		rb.velocity = projectile.transform.forward*10;
-		rb.AddForce(projectile.transform.forward*1000);
-		yield return new WaitForSeconds(0.5f);
-		fired = false;
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit h;
+		if (Physics.Raycast (ray, out h)) {
+			GameObject projectile = Instantiate(standard, transform.position, Quaternion.identity) as GameObject;
+			Vector3 bulletVel = (h.point - this.transform.position).normalized * 50.0f;
+			projectile.transform.GetComponent<Rigidbody>().velocity = (bulletVel + new Vector3((Random.value-0.5f)*20.0f,
+			                                                                                (Random.value-0.5f)*20.0f,0.0f));
+			yield return new WaitForSeconds(1.0f);
+			fired = false;
+		}
 	}
 	IEnumerator FastShot(){
 		//Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
@@ -74,25 +74,26 @@ public class Shooter : MonoBehaviour {
 		RaycastHit h;
 		if (Physics.Raycast (ray, out h)) {
 			GameObject projectile = Instantiate(highvelocity, transform.position, Quaternion.identity) as GameObject;
-			projectile.transform.LookAt(h.point);
-			Rigidbody rb = projectile.GetComponent<Rigidbody>();
-			rb.MoveRotation(Quaternion.LookRotation(h.point));
-			rb.AddForce(projectile.transform.forward * 10000);
+			Vector3 bulletVel = (h.point - this.transform.position).normalized * 200.0f;
+			projectile.transform.GetComponent<Rigidbody>().velocity = (bulletVel + new Vector3((Random.value-0.5f)*20.0f,
+			                                                                         (Random.value-0.5f)*20.0f,0.0f));
 			yield return new WaitForSeconds(1.0f);
 			fired = false;
 		}
 	}
 	IEnumerator ExplosiveShot(){
-		Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
-		position = Camera.main.ScreenToWorldPoint(position);
-		GameObject projectile = Instantiate(explosive, transform.position, Quaternion.identity) as GameObject;
-		projectile.transform.LookAt(position);
-		
-		Rigidbody rb = projectile.GetComponent<Rigidbody>();
-		rb.velocity = projectile.transform.forward*5;
-		rb.AddForce(projectile.transform.forward*100);
-		yield return new WaitForSeconds(1.5f);
-		fired = false;
+		//Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);
+		//position = Camera.main.ScreenToWorldPoint(position);
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit h;
+		if (Physics.Raycast (ray, out h)) {
+			GameObject projectile = Instantiate(explosive, transform.position, Quaternion.identity) as GameObject;
+			Vector3 bulletVel = (h.point - this.transform.position).normalized * 10.0f;
+			projectile.transform.GetComponent<Rigidbody>().velocity = (bulletVel + new Vector3((Random.value-0.5f)*20.0f,
+			                                                                                   (Random.value-0.5f)*20.0f,0.0f));
+			yield return new WaitForSeconds(1.0f);
+			fired = false;
+		}
 	}
 	IEnumerator SplitShot(){
 		Vector3 position = new Vector3(Input.mousePosition.x, 10.0f ,Input.mousePosition.y);

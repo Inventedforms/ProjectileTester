@@ -17,10 +17,11 @@ public class Beacon : MonoBehaviour {
 		
 	}
 	IEnumerator meteorstrike(){
-		yield return new WaitForSeconds(1.3f);
+		yield return new WaitForSeconds(3.3f);
 		Vector3 pos = new Vector3 (transform.position.x, transform.position.y + 100, transform.position.z);
 		GameObject m = Instantiate (meteor, pos, Quaternion.identity) as GameObject;
-		m.GetComponent<Rigidbody> ().AddForce (new Vector3(0, -100, 0));
+		//m.GetComponent<Rigidbody> ().AddForce (new Vector3(0, -1000, 0));
+		m.GetComponent<Rigidbody> ().velocity = new Vector3 (0, -60, 0);
 		Destroy (this.gameObject);
 	}
 	void OnTriggerEnter(Collider other){
