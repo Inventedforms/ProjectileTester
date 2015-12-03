@@ -12,7 +12,7 @@ public class Shooter : MonoBehaviour {
 	int key;
 	bool fired;
 	void Start () {
-		standard = Resources.Load ("Projectile") as GameObject;
+		standard = Resources.Load ("Campfire") as GameObject;
 		highvelocity = Resources.Load ("RomanCandle") as GameObject;
 		explosive = Resources.Load ("ExplodingProjectile") as GameObject;
 		pellet = Resources.Load ("SubProjectile") as GameObject;

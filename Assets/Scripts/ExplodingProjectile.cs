@@ -3,9 +3,11 @@ using System.Collections;
 
 public class ExplodingProjectile : MonoBehaviour {
 	GameObject explosion;
+	GameObject p;
 	// Use this for initialization
 	void Start () {
-		explosion = Resources.Load ("Boom") as GameObject;
+		explosion = Resources.Load ("Elecball") as GameObject;
+		p = Resources.Load ("Explosion") as GameObject;
 		StartCoroutine (delay ());
 	}
 	
@@ -19,13 +21,15 @@ public class ExplodingProjectile : MonoBehaviour {
 	}
 	void explode(){
 		GameObject kaboom = Instantiate (explosion, transform.position, Quaternion.identity) as GameObject;
+		GameObject k = Instantiate (p, transform.position, Quaternion.identity) as GameObject;
+		Collider[] targets = Physics.OverlapSphere (transform.position, 10.0f);
+		for(int i = 0; i < targets.Length; i++){
+		//Now do something to the targets
+		}
 		Destroy (this.gameObject);
 	}
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.name == "Wall") {
-			
-		} else if (other.gameObject.name == "") {
-			
-		}
+		explode ();
+
 	}
 }

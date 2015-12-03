@@ -26,9 +26,9 @@ public class Projectile : MonoBehaviour {
 //	}
 	void Awake()
 	{
-		Destroy(this.gameObject, 2.1f);
+		Destroy(this.gameObject, 4.0f);
 	}
-	void OnTriggerEnter(Collider other){
+	void OnTriggerEnter(Collider other){//Modify this to have it deal damage to enemies on contact.
 		if (other.gameObject.name == "Wall") {
 			
 		} else if (other.gameObject.name == "") {

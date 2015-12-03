@@ -1,4 +1,4 @@
-Version = 1.8.2.25321;
+Version = 1.8.4.27161;
 CParticleEffect	$LOCAL$/Resource
 {
 	EditorInfosPosition = int2(73, 52);
@@ -790,4 +790,18 @@ CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_4AF0153E
 CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_C3479DD9
 {
 	FieldName = "SpawnerLR";
+}
+CNEdEditorParticle_Data	$LOCAL$/EDITOR
+{
+	Backdrops = "$LOCAL$/CNEdEditorBackdrop_List_86687896";
+}
+CNEdEditorBackdrop_List	$LOCAL$/CNEdEditorBackdrop_List_86687896
+{
+	SceneLayers3D = 
+	{
+		"$LOCAL$/CNEdEditorBackdrop_Model3D_79A39811",
+	};
+}
+CNEdEditorBackdrop_Model3D	$LOCAL$/CNEdEditorBackdrop_Model3D_79A39811
+{
 }
